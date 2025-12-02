@@ -1,0 +1,45 @@
+import random
+
+food_trivia = {
+    "What country is the world's largest producer of coffee?": "Brazil",
+    "Which fruit has seeds on the outside?": "Strawberry",
+    "What ingredient makes bread rise?": "Yeast",
+    "What is the main ingredient in tofu?": "Soybeans",
+    "Which country invented ice cream?": "China",
+    "What is the most widely eaten fish in the world?": "Herring",
+    "What sauce is traditionally served with sushi?": "Soy sauce",
+    "What type of bean is used to make baked beans?": "Haricot beans",
+    "What is the primary ingredient in ketchup?": "Tomatoes",
+    "Which fruit is known for having a high potassium content?": "Banana",
+    "What country is famous for feta cheese?": "Greece",
+    "What type of pasta is shaped like little ears?": "Orecchiette",
+    "What spice is commonly used in curry to give it yellow color?": "Turmeric",
+    "What vegetable is used to make sauerkraut?": "Cabbage",
+    "What is the main ingredient in miso soup?": "Fermented soybean paste"
+}
+
+
+def trivia_game():
+    questions_list = list(food_trivia.keys())
+    questions_asked = 5
+    selected_questions = random.sample(questions_list, questions_asked)
+    score = 0
+
+    for idx, question in enumerate(selected_questions):
+        print(f"{idx + 1}. {question}.")
+        correct_answer = food_trivia[question].upper().split()
+
+        user_answer = input("Your answer: ")
+
+        if user_answer == correct_answer:
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Incorrect! The correct answer is {correct_answer}")
+
+    final_score = score/questions_asked * 100
+
+    print(f"Your final score is {final_score} %")
+
+
+trivia_game()
